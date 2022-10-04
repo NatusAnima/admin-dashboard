@@ -1,4 +1,9 @@
 /* GENERIC STUFF: FONT, REMOVING BODY MARGIN (WHITE GAPS), CENTERING IMAGES AND GIVING THEM DEFAULT SIZE */
+@font-face {
+    font-family: Roboto;
+    src: url(source/Roboto-Regular.ttf);
+}
+
 * {
     font-family: Roboto;
 }
@@ -12,8 +17,13 @@ img {
     justify-self: center;
 }
 
-a{
+a,
+a :link,
+a :hover,
+a :active,
+a :visited{
     text-decoration: none;
+    color: white;
 }
 
 /* CONTAINER: LIMIT TO VIEW PORT MAX IF POSSIBLE, AND DECLARING A 2x2 GRID */
@@ -34,6 +44,8 @@ a{
     grid-area: header-container;
     background-color: whitesmoke;
     display: grid;
+    z-index:10;
+    box-shadow: 0px 5px 50px #888888;;
 }
 
 
@@ -251,16 +263,68 @@ span.share-button a:hover {
 /* SIDEBAR STUFF */
 
 .sidebar {
+    min-width: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     grid-area: sidebar;
-    background-color: aqua;
+    z-index:10;
+    background-color: #1992D4;
+    box-shadow: 0px 5px 50px #888888;;
 }
+
+#dashboard{
+    margin: 15px;
+}
+
+#dashboard-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+#dashboard-text > img{
+    /* literally just makes the dashboard icon white */
+    filter: invert(100%) sepia(2%) saturate(47%) hue-rotate(166deg) brightness(117%) contrast(92%);
+
+    height: 42px;
+}
+
+.tabs, .other-tabs{
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidebar-actions{
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-actions > a{
+    margin: 15px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.sidebar-actions > img{
+        /* literally just makes the icons white */
+        filter: invert(100%) sepia(2%) saturate(47%) hue-rotate(166deg) brightness(117%) contrast(92%);
+
+}
+/* MAIN CONTENT */
 
 .main-container {
     grid-area: main-container;
-    background-color: red;
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 1fr;
+    background-color: rgba(76, 68, 68, 0.199);
 }
 
 .projects {
