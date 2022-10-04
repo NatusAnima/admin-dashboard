@@ -1,3 +1,5 @@
+
+/* GENERIC STUFF: FONT, REMOVING BODY MARGIN (WHITE GAPS), CENTERING IMAGES AND GIVING THEM DEFAULT SIZE */
 * {
     font-family: Roboto;
 }
@@ -6,15 +8,15 @@ body {
     margin: 0;
 }
 
-div {
-}
-
 img {
     height: 25px;
     justify-self: center;
 }
 
+/* CONTAINER: LIMIT TO VIEW PORT MAX IF POSSIBLE, AND DECLARING A 2x2 GRID */
+
 .container {
+    max-height: 100vh;
     display: grid;
     grid-template-columns: 1.5fr 7fr;
     grid-template-rows: 1.5fr 7fr;
@@ -23,11 +25,14 @@ img {
         "sidebar main-container";
 }
 
+/* HEADER: 1x2 GRID WITH 2 MORE GRIDS INSIDE */
+
 .header-container {
     grid-area: header-container;
-    background-color: darkgreen;
+    background-color: whitesmoke;
     display: grid;
 }
+
 
 .header {
     display: grid;
@@ -35,11 +40,36 @@ img {
 
     align-items: center;
     grid-template-rows: auto;
-    grid-template-columns: 50px 3fr 50px 50px 1fr;
+    grid-template-columns: 50px 3fr 1fr;
 }
 
+.wrapper {
+    position: relative;
+    display: flex;
+    min-width: 100px;
+  }
+
+.header img{
+    justify-self: right;
+    padding-right: 4px;
+}
+
+  .search {
+    border: 1px solid grey;
+    border-radius: 1000px;
+    font-size: 20px;
+    height: 24px;
+    width: 80%;
+    padding: 2px 23px 2px 7px;
+    outline: 0;
+    background-color: rgb(227, 228, 228);
+  }
+
+  .search:hover, .search:focus {
+    background-color: white;
+  }
+
 .profile {
-    background-color: rgb(103, 243, 103);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,6 +79,32 @@ img {
 .profile img {
     grid-area: profile-picture;
     height: 75px;
+    
+}
+
+.profile-picture{
+    margin-top: 5px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+
+#profile-actions{
+    margin-right: 20px;
+    justify-self: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#profile-actions > img.profile-picture{
+    margin-left: 15px;
+}
+
+#profile-actions > .profile-name{
+    font-size: 18px;
 }
 
 .greeting {
@@ -56,14 +112,24 @@ img {
     margin-right: auto;
 }
 
+#generic-greeting{
+    font-size: 18px;
+}
+
+.profile-name{
+    font-size: 32px;
+    font-weight: 600;
+}
+
 .buttons {
     grid-area: buttons;
+    margin-right: 20px;
+    
 }
 
 .sidebar {
     grid-area: sidebar;
     background-color: aqua;
-    min-height: 100vh;
 }
 
 .main-container {
