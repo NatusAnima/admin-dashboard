@@ -376,6 +376,10 @@ span.share-button a:hover {
     border-radius: 15px;
 }
 
+.trending{
+    margin-right: 10px;
+}
+
 .announcements{
     margin-top: 15px;
 }
