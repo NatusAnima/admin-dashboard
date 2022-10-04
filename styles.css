@@ -1,4 +1,3 @@
-
 /* GENERIC STUFF: FONT, REMOVING BODY MARGIN (WHITE GAPS), CENTERING IMAGES AND GIVING THEM DEFAULT SIZE */
 * {
     font-family: Roboto;
@@ -11,6 +10,10 @@ body {
 img {
     height: 25px;
     justify-self: center;
+}
+
+a{
+    text-decoration: none;
 }
 
 /* CONTAINER: LIMIT TO VIEW PORT MAX IF POSSIBLE, AND DECLARING A 2x2 GRID */
@@ -47,14 +50,14 @@ img {
     position: relative;
     display: flex;
     min-width: 100px;
-  }
+}
 
-.header img{
+.header img {
     justify-self: right;
     padding-right: 4px;
 }
 
-  .search {
+.search {
     border: 1px solid grey;
     border-radius: 1000px;
     font-size: 20px;
@@ -63,11 +66,12 @@ img {
     padding: 2px 23px 2px 7px;
     outline: 0;
     background-color: rgb(227, 228, 228);
-  }
+}
 
-  .search:hover, .search:focus {
+.search:hover,
+.search:focus {
     background-color: white;
-  }
+}
 
 .profile {
     display: flex;
@@ -79,18 +83,19 @@ img {
 .profile img {
     grid-area: profile-picture;
     height: 75px;
-    
+
 }
 
-.profile-picture{
+.profile-picture {
     margin-top: 5px;
     margin-left: 30px;
+    margin-right: 20px;
     margin-bottom: 20px;
     border-radius: 50%;
 }
 
 
-#profile-actions{
+#profile-actions {
     margin-right: 20px;
     justify-self: right;
     display: flex;
@@ -99,11 +104,12 @@ img {
     gap: 20px;
 }
 
-#profile-actions > img.profile-picture{
+#profile-actions>img.profile-picture {
     margin-left: 15px;
+    margin-right: 0px;
 }
 
-#profile-actions > .profile-name{
+#profile-actions>.profile-name {
     font-size: 18px;
 }
 
@@ -112,20 +118,137 @@ img {
     margin-right: auto;
 }
 
-#generic-greeting{
+#generic-greeting {
     font-size: 18px;
+    font-weight: 600;
 }
 
-.profile-name{
+.profile-name {
     font-size: 32px;
     font-weight: 600;
 }
 
+/* BUTTONS: THEY CAN MOVE */
 .buttons {
     grid-area: buttons;
-    margin-right: 20px;
-    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
+
+span {
+    position: relative;
+    display: inline-flex;
+    width: 180px;
+    height: 55px;
+    margin: 0 15px;
+    perspective: 1000px;
+}
+
+span a {
+    font-size: 19px;
+    letter-spacing: 1px;
+    transform-style: preserve-3d;
+    transform: translateZ(-25px);
+    transition: transform .25s;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+/* NEW BUTTON */
+span.new-button a:before,
+span.new-button a:after {
+    content: "NEW";
+    height: 50px;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+
+
+span.new-button a:before {
+    color: #fff;
+    background: #000;
+    transform: rotateY(0deg) translateZ(25px);
+}
+
+span.new-button a:after {
+    color: #000;
+    transform: rotateX(90deg) translateZ(25px);
+}
+
+span.new-button a:hover {
+    transform: translateZ(-25px) rotateX(-90deg);
+}
+
+/* UPLOAD BUTTON */
+span.upload-button a:before,
+span.upload-button a:after {
+    content: "UPLOAD";
+    height: 50px;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+
+
+span.upload-button a:before {
+    color: #fff;
+    background: #000;
+    transform: rotateY(0deg) translateZ(25px);
+}
+
+span.upload-button a:after {
+    color: #000;
+    transform: rotateX(90deg) translateZ(25px);
+}
+
+span.upload-button a:hover {
+    transform: translateZ(-25px) rotateX(-90deg);
+}
+
+/* SHARE BUTTON */
+span.share-button a:before,
+span.share-button a:after {
+    content: "SHARE";
+    height: 50px;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+
+
+span.share-button a:before {
+    color: #fff;
+    background: #000;
+    transform: rotateY(0deg) translateZ(25px);
+}
+
+span.share-button a:after {
+    color: #000;
+    transform: rotateX(90deg) translateZ(25px);
+}
+
+span.share-button a:hover {
+    transform: translateZ(-25px) rotateX(-90deg);
+}
+
+/* SIDEBAR STUFF */
 
 .sidebar {
     grid-area: sidebar;
@@ -155,7 +278,7 @@ img {
     grid-column: 2 / 3;
 }
 
-.projects-container{
+.projects-container {
     display: grid;
     margin: 15px;
     gap: 15px;
